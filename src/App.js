@@ -1,25 +1,32 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import Header from "./components/header/Header";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import Home from "./screens/Home";
+import MoviePage from "./screens/MoviePage";
+import Loader from "./components/loader/Loader";
+import SearchResults from "./screens/SearchResults";
 
-function App() {
+function App(props) {
+  let [searchStr, setSearchStr] = useState("");
+
+  const changeStr = (val) => setSearchStr(val);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <div className="App">
+        <Header changeStr={changeStr} />
+        <Switch>
+          <Route exact path="/" component={Home} />
+          <Route exact path="/movie/:id" component={MoviePage} />
+          <Route exact path="/loader" component={Loader} />
+          <Route
+            exact
+            path="/searchresults"
+            component={() => <SearchResults value={searchStr} />}
+          />
+        </Switch>
+      </div>
+    </Router>
   );
 }
 

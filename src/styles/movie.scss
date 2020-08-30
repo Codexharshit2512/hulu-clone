@@ -1,0 +1,122 @@
+@media (max-width: 500px) {
+  .container {
+    padding: 0 !important;
+  }
+}
+
+.movie-container {
+  transform: perspective(10px) translateZ(-2px);
+  animation: appear 2s forwards;
+  @keyframes appear {
+    from {
+      transform: perspective(10px) translateZ(-2px);
+      opacity: 0.3;
+    }
+    to {
+      transform: none;
+      opacity: 1;
+    }
+  }
+}
+
+.movie-img {
+  position: relative;
+  img {
+    width: 100%;
+    object-fit: fill;
+    height: 50vh;
+    filter: grayscale(50%) blur(0.5px);
+    border-radius: 20px;
+  }
+  .movie-title {
+    position: absolute;
+    bottom: 2.5%;
+    left: 3%;
+    right: 0;
+    color: white;
+    font-size: 35px;
+    font-weight: 500;
+  }
+
+  @media (max-width: 500px) {
+    img {
+      border-radius: 10px;
+    }
+  }
+}
+
+.movie-info {
+  .small-info {
+    margin-left: 2rem;
+    color: white;
+    display: flex;
+    cursor: default;
+    p {
+      margin-right: 2rem;
+      color: lightgray;
+    }
+
+    .rating {
+      background-color: #6d6d6d;
+      color: black;
+      padding: 1px 8px;
+      border-radius: 5px;
+      font-weight: 500;
+      box-shadow: inset 0.5px 0.5px 2px black;
+    }
+  }
+
+  .movie-overview {
+    color: #e0e0e0;
+    margin-left: 2rem;
+    margin-top: 3px;
+    font-size: 16px;
+    padding-right: 2rem;
+    font-weight: 400;
+  }
+
+  .movie-genre {
+    margin-left: 2rem;
+    color: #e0e0e0;
+    margin-top: 1rem;
+    font-size: 18px;
+  }
+}
+
+.watch {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+
+  a {
+    text-decoration: none;
+    color: white;
+    padding: 5px 20px;
+    border: 1px solid white;
+    border-radius: 5px;
+    margin-top: 10px;
+
+    &:hover {
+      border-color: gold;
+      color: gold;
+      transition: border-color 400ms ease-in-out, color 400ms ease-in-out;
+    }
+  }
+
+  @media (max-width: 500px) {
+    a {
+      color: gold;
+      border-color: gold;
+
+      &:hover {
+        transition: none;
+      }
+    }
+  }
+}
+
+@media (min-height: 400px) {
+  .movie-container {
+    margin-bottom: 3rem;
+  }
+}

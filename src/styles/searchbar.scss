@@ -1,0 +1,31 @@
+.search-bar {
+  display: flex;
+  padding-top: 1rem;
+  position: relative;
+  z-index: 999;
+  .close-search-icon {
+    position: absolute;
+    top: 20px;
+  }
+
+  .MuiFormControl-root {
+    width: 30%;
+  }
+
+  .MuiInputBase-root {
+    color: white;
+  }
+
+  .MuiSvgIcon-root {
+    font-size: 32px;
+    color: white;
+    font-weight: bolder;
+    margin-left: 3rem;
+  }
+}
+
+.input-bar {
+  display: flex;
+  justify-content: center;
+  flex: 4;
+}
