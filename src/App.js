@@ -5,6 +5,7 @@ import Home from "./screens/Home";
 import MoviePage from "./screens/MoviePage";
 import Loader from "./components/loader/Loader";
 import SearchResults from "./screens/SearchResults";
+import ErrorPage from "./screens/ErrorPage";
 
 function App(props) {
   let [searchStr, setSearchStr] = useState("");
@@ -12,7 +13,7 @@ function App(props) {
   const changeStr = (val) => setSearchStr(val);
 
   return (
-    <Router>
+    <Router basename={process.env.PUBLIC_URL || "/"}>
       <div className="App">
         <Header changeStr={changeStr} />
         <Switch>
@@ -24,6 +25,7 @@ function App(props) {
             path="/searchresults"
             component={() => <SearchResults value={searchStr} />}
           />
+          <Route component={ErrorPage} />
         </Switch>
       </div>
     </Router>

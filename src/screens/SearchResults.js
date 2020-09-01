@@ -8,6 +8,7 @@ import axios from "axios";
 const SearchResults = (props) => {
   let [results, setResult] = useState([]);
   let [isLoading, setLoading] = useState(true);
+  let [errorMsg, setError] = useState("");
 
   useEffect(() => {
     let mounted = true;
@@ -20,7 +21,8 @@ const SearchResults = (props) => {
         );
         if (mounted) {
           setLoading(false);
-          setResult(data.results);
+          if (data.results.length === 0) setError("No movies found");
+          else setResult(data.results);
         }
       } catch (err) {
         console.log(err);
@@ -37,6 +39,8 @@ const SearchResults = (props) => {
     <>
       {isLoading === true ? (
         <Loader />
+      ) : errorMsg !== "" ? (
+        <h2 className="search-error">{errorMsg}</h2>
       ) : (
         <div className="search-results">
           <FlipMove className="row mt-3">

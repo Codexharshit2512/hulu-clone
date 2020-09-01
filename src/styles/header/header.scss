@@ -8,13 +8,23 @@
     display: flex;
     flex-basis: 450px;
     margin-top: 1.6rem;
+
     .header-icon {
       flex-basis: 100px;
       cursor: default;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      & > p {
+      span {
+        display: block;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+      a {
+        display: block;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+      & p {
         margin: 0;
         padding: 0;
         font-size: 14px;
@@ -75,10 +85,8 @@
       color: grey;
       .header-icon {
         cursor: default;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        & > p {
+
+        & p {
           margin: 0;
           padding: 0;
           font-size: 10px;

@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import HomeIcon from "@material-ui/icons/Home";
 import SearchIcon from "@material-ui/icons/Search";
 import LiveTvIcon from "@material-ui/icons/LiveTv";
@@ -9,28 +10,40 @@ import FlashOnIcon from "@material-ui/icons/FlashOn";
 const HeaderIcons = (props) => (
   <>
     <div className="header-icon">
-      <HomeIcon />
-      <p>Home</p>
+      <span onClick={props.handleClick}>
+        <HomeIcon />
+        <p>Home</p>
+      </span>
     </div>
     <div className="header-icon">
-      <FlashOnIcon />
-      <p>Trending</p>
+      <span>
+        <FlashOnIcon />
+        <p>Trending</p>
+      </span>
     </div>
     <div className="header-icon">
-      <LiveTvIcon />
-      <p>Verified</p>
+      <span>
+        <LiveTvIcon />
+        <p>Verified</p>
+      </span>
     </div>
     <div className="header-icon">
-      <VideoLibraryIcon />
-      <p>Collections</p>
+      <span>
+        <VideoLibraryIcon />
+        <p>Collections</p>
+      </span>
     </div>
     <div className="header-icon" onClick={props.toggleSearch}>
-      <SearchIcon />
-      <p>Search</p>
+      <span onClick={props.navigate}>
+        <SearchIcon />
+        <p>Search</p>
+      </span>
     </div>
     <div className="header-icon">
-      <PersonOutlineIcon />
-      <p>Account</p>
+      <span>
+        <PersonOutlineIcon />
+        <p>Account</p>
+      </span>
     </div>
   </>
 );

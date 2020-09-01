@@ -1,10 +1,9 @@
-import React, { useState } from "react";
+import React, { useState, forwardRef } from "react";
 import { useHistory } from "react-router-dom";
 import TextField from "@material-ui/core/TextField";
 import ArrowBackIcon from "@material-ui/icons/ArrowBack";
-// import BackDrop from "../backdrop/BackDrop";
 
-const SearchBar = (props) => {
+const SearchBar = forwardRef((props, ref) => {
   const [value, setValue] = useState("");
   let history = useHistory();
 
@@ -18,7 +17,7 @@ const SearchBar = (props) => {
 
   return (
     <>
-      <div className="search-bar">
+      <div ref={ref} className="search-bar" id="search-bar">
         <div className="close-search-icon">
           <span onClick={props.toggleSearch}>
             <ArrowBackIcon />
@@ -28,9 +27,8 @@ const SearchBar = (props) => {
           <TextField rowsMax={10} value={value} onChange={handleChange} />
         </div>
       </div>
-      {/* <BackDrop /> */}
     </>
   );
-};
+});
 
 export default SearchBar;

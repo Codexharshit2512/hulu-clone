@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
-import { API_KEY, requests } from "../config/configration";
+import { requests } from "../config/configration";
 import MovieDetail from "../components/movie/MovieDetail";
 import Loader from "../components/loader/Loader";
 
@@ -14,7 +14,9 @@ const MoviePage = (props) => {
   useEffect(() => {
     setLoading(true);
     axios
-      .get(`${requests.discover}${id}?api_key=${API_KEY}&language=en-US`)
+      .get(
+        `${requests.discover}${id}?api_key=${process.env.API_KEY}&language=en-US`
+      )
       .then(({ data }) => {
         setTimeout(() => {
           setLoading(false);
